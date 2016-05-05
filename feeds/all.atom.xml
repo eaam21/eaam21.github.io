@@ -1,5 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog</title><link href="http://eaam21.github.io/" rel="alternate"></link><link href="http://eaam21.github.io/feeds/all.atom.xml" rel="self"></link><id>http://eaam21.github.io/</id><updated>2016-05-03T16:41:00-05:00</updated><entry><title>Hello world!</title><link href="http://eaam21.github.io/hello-world.html" rel="alternate"></link><published>2016-05-03T16:41:00-05:00</published><author><name>Elías Alejandro</name></author><id>tag:eaam21.github.io,2016-04-21:hello-world.html</id><summary type="html">&lt;p&gt;Hi there. Welcome to my first entry, in this place I'll try to write some english posts although my native language be spanish.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog</title><link href="http://eaam21.github.io/" rel="alternate"></link><link href="http://eaam21.github.io/feeds/all.atom.xml" rel="self"></link><id>http://eaam21.github.io/</id><updated>2016-05-03T17:14:36-05:00</updated><entry><title>Installing pelican</title><link href="http://eaam21.github.io/installing-pelican.html" rel="alternate"></link><published>2016-05-03T17:14:36-05:00</published><author><name>Elías Alejandro</name></author><id>tag:eaam21.github.io,2016-05-03:installing-pelican.html</id><summary type="html">&lt;p&gt;When I decided to start with this blog I didn't know about Pelican I just wanted a free hosting for my blog
+integrated with git, some time ago some friends told me about Octopress and how it works however it runs with
+ruby. Currently I'm not familiar with ruby (long time ago I made a task with ruby on rails
+however nowadays my knowledge about ruby can be a little bit rusty) So I started to 
+looking for a python alternative because currently it's more comfortable for me.
+There are many sites about how to install Pelican, I took some pieces of them to make launch this blog.
+At the end of this post I've included some of them.&lt;/p&gt;
+&lt;h3&gt;Repos&lt;/h3&gt;
+&lt;p&gt;Firstly we need to have a github repository to upload the blog. To publish you only need one
+repository named like your username with &lt;em&gt;github.io&lt;/em&gt; at the end. Please refer to github for create static web pages.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt; username.github.io&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ok. but I decided to have 2 repos the first one to publish my blog and the second one for store the
+markdown sources needed to build all the html for the blog&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt; username.github.io-src&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It might be annoying because we have 2 repos, but I thought it can save my life later. :)&lt;/p&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+&lt;p&gt;Create and activate a virtual environment to install pelican.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; pip install virtualenv
+&lt;span class="gp"&gt;$&lt;/span&gt; virtualenv ~/pelican
+&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; ~/pelican
+&lt;span class="gp"&gt;$&lt;/span&gt; . bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Into pelican directory with the environment activated, install: pelican and markdown&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; pip install pelican
+&lt;span class="gp"&gt;$&lt;/span&gt; pip install markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then go to root directory and create 'blog' directory. Into this directory we'll create
+all pelican files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ls
+&lt;span class="go"&gt;bin  include  lib  local&lt;/span&gt;
+&lt;span class="gp"&gt;$&lt;/span&gt; mkdir blog
+&lt;span class="gp"&gt;$&lt;/span&gt; ls
+&lt;span class="go"&gt;bin  blog  include  lib  local&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Enter into the 'blog' diretory and create all the Pelican files.
+Pelican will ask you some questions about your blog. At this point you should already have a git repo to upload your blog.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; pelican-quickstart
+&lt;span class="go"&gt;Where do you want to create your new web site? [.] &lt;/span&gt;
+&lt;span class="go"&gt; What will be the title of this web site? My Blog&lt;/span&gt;
+&lt;span class="go"&gt; Who will be the author of this web site? Your Blog Name&lt;/span&gt;
+&lt;span class="go"&gt; What will be the default language of this web site? [en] &lt;/span&gt;
+&lt;span class="go"&gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) y&lt;/span&gt;
+&lt;span class="go"&gt; What is your URL prefix? (see above example; no trailing slash) http://username.github.io&lt;/span&gt;
+&lt;span class="go"&gt; Do you want to enable article pagination? (Y/n) y&lt;/span&gt;
+&lt;span class="go"&gt; How many articles per page do you want? [10] &lt;/span&gt;
+&lt;span class="go"&gt; What is your time zone? [Europe/Paris] America/Lima&lt;/span&gt;
+&lt;span class="go"&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) Y&lt;/span&gt;
+&lt;span class="go"&gt; Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme and site development? (Y/n) y&lt;/span&gt;
+&lt;span class="go"&gt; Do you want to upload your website using FTP? (y/N) n&lt;/span&gt;
+&lt;span class="go"&gt; Do you want to upload your website using SSH? (y/N) n&lt;/span&gt;
+&lt;span class="go"&gt; Do you want to upload your website using Dropbox? (y/N) n&lt;/span&gt;
+&lt;span class="go"&gt; Do you want to upload your website using S3? (y/N) n&lt;/span&gt;
+&lt;span class="go"&gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) n&lt;/span&gt;
+&lt;span class="go"&gt; Do you want to upload your website using GitHub Pages? (y/N) y&lt;/span&gt;
+&lt;span class="go"&gt; Is this your personal page (username.github.io)? (y/N) y&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then pelican will generate the following files:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;blog/&lt;/span&gt;
+&lt;span class="go"&gt;  ├── content&lt;/span&gt;
+&lt;span class="go"&gt;  ├── output&lt;/span&gt;
+&lt;span class="go"&gt;  ├── develop_server.sh&lt;/span&gt;
+&lt;span class="go"&gt;  ├── fabfile.py&lt;/span&gt;
+&lt;span class="go"&gt;  ├── makefile&lt;/span&gt;
+&lt;span class="go"&gt;  ├── pelicanconf.py       &lt;/span&gt;
+&lt;span class="go"&gt;  └── publishconf.py&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;content:&lt;/em&gt; contains all our markdown files.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;output:&lt;/em&gt; contains all the html that will be visible.&lt;/p&gt;
+&lt;p&gt;Pelican look into the &lt;em&gt;content&lt;/em&gt; directory and then generate all the html, css,..
+in the &lt;em&gt;output&lt;/em&gt; directory to be published. At this point we can see our blog with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; make devserver
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;go to your favorite browser. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;http://localhost:8000&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can only see the blog without any posts. To stop your local webserver:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ./develop_server.sh stop
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;The first post&lt;/h3&gt;
+&lt;p&gt;I removed those 2 directories (content, output) and clone my 2 repos intead of them.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; rmdir content output
+&lt;span class="gp"&gt;$&lt;/span&gt; git clone https://github.com/username/username.github.io.git output
+&lt;span class="gp"&gt;$&lt;/span&gt; git clone https://github.com/username/username.github.io-src.git content
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We are going to create the first post. Enter into the content directory and create
+a file with .md extension and the following content. It can be &lt;em&gt;hello.md&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;Title: My super title&lt;/span&gt;
+&lt;span class="go"&gt;Date: 2010-12-03 10:20&lt;/span&gt;
+&lt;span class="go"&gt;Modified: 2010-12-05 19:30&lt;/span&gt;
+&lt;span class="go"&gt;Category: Python&lt;/span&gt;
+&lt;span class="go"&gt;Tags: pelican, publishing&lt;/span&gt;
+&lt;span class="go"&gt;Authors: Alexis Metaireau, Conan Doyle&lt;/span&gt;
+&lt;span class="go"&gt;Summary: Short version for index and feeds&lt;/span&gt;
+
+&lt;span class="go"&gt;This is the content of my super blog post.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then let's Pelican builds our blog:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; make devserver
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This command will create all the html, css.. into output directory.
+Finally go to : &lt;code&gt;http://localhost:8000&lt;/code&gt;. At this point you can easily take a tour
+for how to write under markdown format.&lt;/p&gt;
+&lt;h3&gt;Themes&lt;/h3&gt;
+&lt;p&gt;You can change the default theme provided by Pelican. There's some themes in
+&lt;a href="http://www.pelicanthemes.com"&gt;http://www.pelicanthemes.com&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;So you can list all the installed themes with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; pelican-themes -l
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Install a new theme&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; pelican-themes -vi /path/to/your/downloaded-directory-theme
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Activate the theme. Add to &lt;code&gt;pelicanconf.py&lt;/code&gt; file the theme's name&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;THEME = &amp;#39;awesome-theme&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then rebuild all with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; make devserver
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Disqus&lt;/h3&gt;
+&lt;p&gt;You can also add Disqus to your blog. First you need go to Disqus website, sign up and then get your &lt;em&gt;userid&lt;/em&gt;
+then add it into the &lt;code&gt;pelicanconf.py&lt;/code&gt; file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;DISQUS_SITENAME=u&amp;#39;yourusername&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Publishing&lt;/h3&gt;
+&lt;p&gt;Finally to see &lt;em&gt;blog&lt;/em&gt; under github web only make a git push. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; output
+&lt;span class="gp"&gt;$&lt;/span&gt; git add .
+&lt;span class="gp"&gt;$&lt;/span&gt; git commit -m &lt;span class="s2"&gt;&amp;quot;First post&amp;quot;&lt;/span&gt;
+&lt;span class="gp"&gt;$&lt;/span&gt; git push -u origin master
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Don't forget there are 2 repos the first one to publish (html, css...)
+and the second one to upload the markdown files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; content
+&lt;span class="gp"&gt;$&lt;/span&gt; git add .
+&lt;span class="gp"&gt;$&lt;/span&gt; git commit -m &lt;span class="s2"&gt;&amp;quot;First post source&amp;quot;&lt;/span&gt;
+&lt;span class="gp"&gt;$&lt;/span&gt; git push -u origin master
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, you can visit the https://username.github.io and see the new site you’ve just created.&lt;/p&gt;
+&lt;p&gt;You can add &lt;em&gt;plugins&lt;/em&gt;, &lt;em&gt;social widget&lt;/em&gt;, modify &lt;em&gt;site url&lt;/em&gt; all that into the &lt;code&gt;pelicanconf.py&lt;/code&gt; file. 
+I recomend read more about this file from the official Pelican website.&lt;/p&gt;
+&lt;h3&gt;Tips and Tricks&lt;/h3&gt;
+&lt;p&gt;You can visit &lt;a href="https://github.com/getpelican/pelican/wiki/Tips-n-Tricks"&gt;https://github.com/getpelican/pelican/wiki/Tips-n-Tricks&lt;/a&gt;
+to obtain some tricks for Pelican.&lt;/p&gt;
+&lt;p&gt;I use the &lt;em&gt;make newpost&lt;/em&gt; it is a useful script to automatically create new posts. :)&lt;/p&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;Usefull links that help me to make this blog:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://docs.getpelican.com/en/3.6.3/"&gt;http://docs.getpelican.com/en/3.6.3/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://chdoig.github.io/create-pelican-blog.html"&gt;http://chdoig.github.io/create-pelican-blog.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fedoramagazine.org/make-github-pages-blog-with-pelican/"&gt;https://fedoramagazine.org/make-github-pages-blog-with-pelican/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://cyrille.rossant.net/pelican-github/"&gt;http://cyrille.rossant.net/pelican-github/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html"&gt;http://mathamy.com/migrating-to-github-pages-using-pelican.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.wangbo.info/config-pelican-themes-disqus-and-pygments.html"&gt;http://www.wangbo.info/config-pelican-themes-disqus-and-pygments.html&lt;/a&gt;&lt;/p&gt;</summary><category term="pelican"></category><category term="python"></category><category term="blog"></category></entry><entry><title>Hello world!</title><link href="http://eaam21.github.io/hello-world.html" rel="alternate"></link><published>2016-05-03T16:41:00-05:00</published><author><name>Elías Alejandro</name></author><id>tag:eaam21.github.io,2016-04-21:hello-world.html</id><summary type="html">&lt;p&gt;Hi there. Welcome to my first entry, in this place I'll try to write some english posts although my native language be spanish.
 Usually I'll write to save my own step procedures about
 certain daily tasks and some others misc all that to keep practicing my english So if you find some typo, grammar
 fails... please let me know. Thanks. :)&lt;/p&gt;
