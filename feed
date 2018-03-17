@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feed" rel="self"></link><id>http://localhost:8000/</id><updated>2016-04-21T13:30:00-05:00</updated><entry><title>Hello world!</title><link href="http://localhost:8000/hello-world.html" rel="alternate"></link><published>2016-04-21T13:30:00-05:00</published><author><name>Elías Alejandro</name></author><id>tag:localhost:8000,2016-04-21:hello-world.html</id><summary type="html">&lt;p&gt;Hi there, in this space I'll try to write english posts although my native language is spanish.
-Usually I'll write IT subjects and some other misc, all that to keep practicing my english :D&lt;/p&gt;
-&lt;p&gt;So here we go!&lt;/p&gt;</summary><category term="Personal"></category></entry></feed>

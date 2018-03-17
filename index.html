@@ -1,285 +1,83 @@
-<!doctype html>
-<html lang="">	
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8"/>
-	<title>Blog</title>	
-	<meta name="author" content="Elías Alejandro">
-	
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
-	<link rel="stylesheet" href="http://eaam21.github.io/theme/css/main.css" type="text/css" />
-		
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Elías Alejandro">
+  <meta name="description" content="Posts and writings by Elías Alejandro">
+
+  <link href="http://eaam21.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog Atom" />
 
 
-    <link href="http://eaam21.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog Atom Feed" />
+  <title>
+    Blog
+  </title>
+
 </head>
-	
+
 <body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="http://eaam21.github.io/static/images/avatar.png" alt="logo">
+      </a>
+      <h2><a href=".">Elías Alejandro</a></h2>
+      <p>Learning blog</p>
+      <ul>
+        <li><a href="https://github.com/eaam21" target="_blank">Github</a></li>
+        <li><a href="https://twitter.com/eaam21" target="_blank">Twitter</a></li>
+      </ul>
+    </div>
+  </aside>
 
-    <div class="container">
-	  
-	  <header role="banner">
-	    <div class="feeds">
-	      <a href="http://eaam21.github.io/feeds/all.atom.xml" rel="alternate"><img src="http://eaam21.github.io/theme/images/icons/feed-32px.png" alt="atom feed"/></a>
-	    </div>
-		<a href="http://eaam21.github.io" class="title">Blog</a>
-      </header>
-	
-	  <div class="wrapper">
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://eaam21.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
 
-		  <div role="main" class="content">
-
-
-
-      <article>
-        <h1><a href="http://eaam21.github.io/installing-pelican.html">Installing pelican</a></h1>
-        <p>When I decided to start with this blog I didn't know about Pelican I just wanted a free hosting for my blog
+<article>
+  <div class="article_title">
+    <h1><a href="./installing-pelican.html">Installing pelican</a></h1>
+  </div>
+  <div class="article_text">
+    <p>When I decided to start with this blog I didn't know about Pelican I just wanted a free hosting for my blog
 integrated with git, some time ago some friends told me about Octopress and how it works however it runs with
-ruby. Currently I'm not familiar with ruby (long time ago I made a task with ruby on rails
-however nowadays my knowledge about ruby can be a little bit rusty) So I started to 
-looking for a python alternative because currently it's more comfortable for me.
-There are many sites about how to install Pelican, I took some pieces of them to make launch this blog.
-At the end of this post I've included some of them.</p>
-<h3>Repos</h3>
-<p>Firstly we need to have a github repository to upload the blog. To publish you only need one
-repository named like your username with <em>github.io</em> at the end. Please refer to github for create static web pages.</p>
-<div class="highlight"><pre><span></span><span class="go"> username.github.io</span>
-</pre></div>
+ruby. Currently I'm not familiar with ruby (long …</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="./hello-world.html">Hello world!</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Hi there. Welcome to my first entry, in this place I'll try to write some english posts although my native language be spanish.
+Usually I'll write to save my own step procedures about
+certain daily tasks and some others misc all that to keep practicing my english So if you …</p>
+  </div>
+</article>
 
+<footer>
+<div id="paginator">
 
-<p>ok. but I decided to have 2 repos the first one to publish my blog and the second one for store the
-markdown sources needed to build all the html for the blog</p>
-<div class="highlight"><pre><span></span><span class="go"> username.github.io-src</span>
-</pre></div>
+</div>
+</footer>
 
-
-<p>It might be annoying because we have 2 repos, but I thought it can save my life later. :)</p>
-<h3>Installation</h3>
-<p>Create and activate a virtual environment to install pelican.</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> pip install virtualenv
-<span class="gp">$</span> virtualenv ~/pelican
-<span class="gp">$</span> <span class="nb">cd</span> ~/pelican
-<span class="gp">$</span> . bin/activate
-</pre></div>
-
-
-<p>Into pelican directory with the environment activated, install: pelican and markdown</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> pip install pelican
-<span class="gp">$</span> pip install markdown
-</pre></div>
-
-
-<p>Then go to root directory and create 'blog' directory. Into this directory we'll create
-all pelican files.</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> ls
-<span class="go">bin  include  lib  local</span>
-<span class="gp">$</span> mkdir blog
-<span class="gp">$</span> ls
-<span class="go">bin  blog  include  lib  local</span>
-</pre></div>
-
-
-<p>Enter into the 'blog' diretory and create all the Pelican files.
-Pelican will ask you some questions about your blog. At this point you should already have a git repo to upload your blog.</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> pelican-quickstart
-<span class="go">Where do you want to create your new web site? [.] </span>
-<span class="go"> What will be the title of this web site? My Blog</span>
-<span class="go"> Who will be the author of this web site? Your Blog Name</span>
-<span class="go"> What will be the default language of this web site? [en] </span>
-<span class="go"> Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) y</span>
-<span class="go"> What is your URL prefix? (see above example; no trailing slash) http://username.github.io</span>
-<span class="go"> Do you want to enable article pagination? (Y/n) y</span>
-<span class="go"> How many articles per page do you want? [10] </span>
-<span class="go"> What is your time zone? [Europe/Paris] America/Lima</span>
-<span class="go"> Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) Y</span>
-<span class="go"> Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) y</span>
-<span class="go"> Do you want to upload your website using FTP? (y/N) n</span>
-<span class="go"> Do you want to upload your website using SSH? (y/N) n</span>
-<span class="go"> Do you want to upload your website using Dropbox? (y/N) n</span>
-<span class="go"> Do you want to upload your website using S3? (y/N) n</span>
-<span class="go"> Do you want to upload your website using Rackspace Cloud Files? (y/N) n</span>
-<span class="go"> Do you want to upload your website using GitHub Pages? (y/N) y</span>
-<span class="go"> Is this your personal page (username.github.io)? (y/N) y</span>
-</pre></div>
-
-
-<p>Then pelican will generate the following files:</p>
-<div class="highlight"><pre><span></span><span class="go">blog/</span>
-<span class="go">  ├── content</span>
-<span class="go">  ├── output</span>
-<span class="go">  ├── develop_server.sh</span>
-<span class="go">  ├── fabfile.py</span>
-<span class="go">  ├── makefile</span>
-<span class="go">  ├── pelicanconf.py       </span>
-<span class="go">  └── publishconf.py</span>
-</pre></div>
-
-
-<p><em>content:</em> contains all our markdown files.</p>
-<p><em>output:</em> contains all the html that will be visible.</p>
-<p>Pelican look into the <em>content</em> directory and then generate all the html, css,..
-in the <em>output</em> directory to be published. At this point we can see our blog with:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> make devserver
-</pre></div>
-
-
-<p>go to your favorite browser. </p>
-<div class="highlight"><pre><span></span><span class="go">http://localhost:8000</span>
-</pre></div>
-
-
-<p>You can only see the blog without any posts. To stop your local webserver:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> ./develop_server.sh stop
-</pre></div>
-
-
-<h3>The first post</h3>
-<p>I removed those 2 directories (content, output) and clone my 2 repos intead of them.</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> rmdir content output
-<span class="gp">$</span> git clone https://github.com/username/username.github.io.git output
-<span class="gp">$</span> git clone https://github.com/username/username.github.io-src.git content
-</pre></div>
-
-
-<p>We are going to create the first post. Enter into the content directory and create
-a file with .md extension and the following content. It can be <em>hello.md</em></p>
-<div class="highlight"><pre><span></span><span class="go">Title: My super title</span>
-<span class="go">Date: 2010-12-03 10:20</span>
-<span class="go">Modified: 2010-12-05 19:30</span>
-<span class="go">Category: Python</span>
-<span class="go">Tags: pelican, publishing</span>
-<span class="go">Authors: Alexis Metaireau, Conan Doyle</span>
-<span class="go">Summary: Short version for index and feeds</span>
-
-<span class="go">This is the content of my super blog post.</span>
-</pre></div>
-
-
-<p>Then let's Pelican builds our blog:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> make devserver
-</pre></div>
-
-
-<p>This command will create all the html, css.. into output directory.
-Finally go to : <code>http://localhost:8000</code>. At this point you can easily take a tour
-for how to write under markdown format.</p>
-<h3>Themes</h3>
-<p>You can change the default theme provided by Pelican. There's some themes in
-<a href="http://www.pelicanthemes.com">http://www.pelicanthemes.com</a> </p>
-<p>So you can list all the installed themes with:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> pelican-themes -l
-</pre></div>
-
-
-<p>Install a new theme</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> pelican-themes -vi /path/to/your/downloaded-directory-theme
-</pre></div>
-
-
-<p>Activate the theme. Add to <code>pelicanconf.py</code> file the theme's name</p>
-<div class="highlight"><pre><span></span><span class="go">THEME = &#39;awesome-theme&#39;</span>
-</pre></div>
-
-
-<p>Then rebuild all with:</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> make devserver
-</pre></div>
-
-
-<h3>Disqus</h3>
-<p>You can also add Disqus to your blog. First you need go to Disqus website, sign up and then get your <em>userid</em>
-then add it into the <code>pelicanconf.py</code> file</p>
-<div class="highlight"><pre><span></span><span class="go">DISQUS_SITENAME=u&#39;yourusername&#39;</span>
-</pre></div>
-
-
-<h3>Publishing</h3>
-<p>Finally to see <em>blog</em> under github web only make a git push. </p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> output
-<span class="gp">$</span> git add .
-<span class="gp">$</span> git commit -m <span class="s2">&quot;First post&quot;</span>
-<span class="gp">$</span> git push -u origin master
-</pre></div>
-
-
-<p>Don't forget there are 2 repos the first one to publish (html, css...)
-and the second one to upload the markdown files.</p>
-<div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> content
-<span class="gp">$</span> git add .
-<span class="gp">$</span> git commit -m <span class="s2">&quot;First post source&quot;</span>
-<span class="gp">$</span> git push -u origin master
-</pre></div>
-
-
-<p>Now, you can visit the https://username.github.io and see the new site you’ve just created.</p>
-<p>You can add <em>plugins</em>, <em>social widget</em>, modify <em>site url</em> all that into the <code>pelicanconf.py</code> file. 
-I recomend read more about this file from the official Pelican website.</p>
-<h3>Tips and Tricks</h3>
-<p>You can visit <a href="https://github.com/getpelican/pelican/wiki/Tips-n-Tricks">https://github.com/getpelican/pelican/wiki/Tips-n-Tricks</a>
-to obtain some tricks for Pelican.</p>
-<p>I use the <em>make newpost</em> it is a useful script to automatically create new posts. :)</p>
-<h3>Links</h3>
-<p>Usefull links that help me to make this blog:</p>
-<p><a href="http://docs.getpelican.com/en/3.6.3/">http://docs.getpelican.com/en/3.6.3/</a></p>
-<p><a href="http://chdoig.github.io/create-pelican-blog.html">http://chdoig.github.io/create-pelican-blog.html</a></p>
-<p><a href="https://fedoramagazine.org/make-github-pages-blog-with-pelican/">https://fedoramagazine.org/make-github-pages-blog-with-pelican/</a></p>
-<p><a href="http://cyrille.rossant.net/pelican-github/">http://cyrille.rossant.net/pelican-github/</a></p>
-<p><a href="http://mathamy.com/migrating-to-github-pages-using-pelican.html">http://mathamy.com/migrating-to-github-pages-using-pelican.html</a></p>
-<p><a href="http://www.wangbo.info/config-pelican-themes-disqus-and-pygments.html">http://www.wangbo.info/config-pelican-themes-disqus-and-pygments.html</a></p>
-      </article>
-
-      <hr />
-
-        <div>
-          <h3>Last posts</h3>
-          <ol class="archive">
-    
-
-
-      <li>
-<a href="http://eaam21.github.io/hello-world.html" rel="bookmark" title="Permalink to Hello world!">Hello world!</a>
-  <time datetime="2016-04-21T13:30:00-05:00" pubdate>Thu 21 April 2016</time>
-<p class="tags">tags: <a href="http://eaam21.github.io/tag/personal.html">Personal</a></p></a>      </li>
-
-
-          </ol>
-        </div>
-
-		  </div>	
-		  
-		  <div class="sidebar">
-		    <div class="sidebar-container" >
-
-
-  	          <nav>
-	            <h2>Categories</h2>
-	            <ul>
-	                <li ><a href="http://eaam21.github.io/category/general.html">General</a></li>
-	                <li ><a href="http://eaam21.github.io/category/software.html">software</a></li>
-	            </ul>
-	          </nav>
-
-	            <aside>
-	            <h2>Social</h2>
-			      <ul class="social">
-				    <li><a href="https://github.com/eaam21">github</a><i></i></li>
-				    <li><a href="https://twitter.com/eaam21">twitter</a><i></i></li>
-			      </ul>
-			    </aside>
-
-	        </div>
-		  </div>
-
-	  </div>
-
-      <footer>
-		<p role="contentinfo">
-		  Elías Alejandro - Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>. Theme <a href="https://github.com/fle/pelican-sober">pelican-sober</a>.
-    	</p>
-
-	  </footer>	
-
-	</div>
-	
-
+    <div id="ending_message">
+      <p>&copy; Elías Alejandro. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
 </body>
 </html>
