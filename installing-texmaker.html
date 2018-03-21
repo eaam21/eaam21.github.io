@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Elías Alejandro">
+  <meta name="description" content="Posts and writings by Elías Alejandro">
+
+  <link href="http://eaam21.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog Atom" />
+
+<meta name="keywords" content="Latex">
+
+  <title>
+    Blog
+&ndash; Installing Texmaker under Debian  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="http://eaam21.github.io/images/avatar.png" alt="logo">
+      </a>
+      <h2><a href=".">Elías Alejandro</a></h2>
+      <p>Learning blog</p>
+      <ul>
+        <li><a href="https://github.com/eaam21" target="_blank">Github</a></li>
+        <li><a href="https://twitter.com/eaam21" target="_blank">Twitter</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://eaam21.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="./installing-texmaker.html">Installing Texmaker under Debian</a></h1>
+  </div>
+  <div class="article_text">
+    <p><img alt="alt text" src="http://www.xm1math.net/texmaker/assets/portfolio/structure.png" title="Texmaker"></p>
+<p>What is Texmaker? According to <a href="http://www.xm1math.net/texmaker/" target="_blank">Texmaker</a> website:</p>
+<blockquote>
+<p>Texmaker is a free, modern and cross-platform LaTeX editor for linux, macosx and windows systems 
+that integrates many tools needed to develop documents with LaTeX, in just one application.</p>
+</blockquote>
+<p>It makes sense since we need to create documents using <a href="https://en.wikipedia.org/wiki/LaTex" target="_blank">LaTex</a> format.</p>
+<p>So to install Texmaker in Debian/Ubuntu you can follow the next instructions:</p>
+<h3>Steps and troubleshooting</h3>
+<p>First all install Texmaker :)</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> sudo aptitude install texmaker
+</pre></div>
+
+
+<p><em>Note: you can use apt-get to install your package like: sudo apt-get install texmaker</em></p>
+<p>Ok, now I have a LaTex document and I'd like to create a pdf file. You can open your LaTex document
+(with TexMaker obviously :) and then clik on the Right Arrow (Run). If you get an error message like</p>
+<div class="highlight"><pre><span></span><span class="go">! Package babel Error: You haven&#39;t specified a language option.</span>
+</pre></div>
+
+
+<p>You need to install another package, in my case my document will be in Spanish then:</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> sudo aptitude install tex-live-lang-spanish
+</pre></div>
+
+
+<p>Then try again to create the pdf file as we describe above. If you get an error message like:</p>
+<div class="highlight"><pre><span></span><span class="go">! LaTeX Error: File `siunitx.sty&#39; not found.</span>
+</pre></div>
+
+
+<p>You need to install texlive-science package</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> sudo aptitude install texlive-science
+</pre></div>
+
+
+<p>Then try to create the pdf file. If you get an error message like:</p>
+<div class="highlight"><pre><span></span><span class="go">! LaTeX Error: File `biblatex.sty&#39; not found.</span>
+</pre></div>
+
+
+<p>Install texlive-bibtex-extra package</p>
+<div class="highlight"><pre><span></span><span class="gp">$</span> sudo aptitude install texlive-bibtex-extra
+</pre></div>
+
+
+<p>Once again try to create the pdf file. But if you still get an error about </p>
+<div class="highlight"><pre><span></span><span class="go">undefined sequence control..</span>
+<span class="go">\entry ...ata@\the \c@refsection @\blx@dlist@name</span>
+<span class="go">...</span>
+</pre></div>
+
+
+<p>You should delete temporary files .aux, .bbl, .bcf and try again.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 21 March 2018</p>
+    <p>Category: <a href="./category/software.html">software</a>
+ &ndash; Tags:
+      <a href="./tag/latex.html">Latex</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "installing-texmaker.html";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//eaam21.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Elías Alejandro. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

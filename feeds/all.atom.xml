@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog</title><link href="http://eaam21.github.io/" rel="alternate"></link><link href="http://eaam21.github.io/feeds/all.atom.xml" rel="self"></link><id>http://eaam21.github.io/</id><updated>2016-05-03T17:14:36-03:00</updated><entry><title>Installing pelican</title><link href="http://eaam21.github.io/installing-pelican.html" rel="alternate"></link><published>2016-05-03T17:14:36-03:00</published><updated>2016-05-03T17:14:36-03:00</updated><author><name>Elías Alejandro</name></author><id>tag:eaam21.github.io,2016-05-03:/installing-pelican.html</id><summary type="html">&lt;p&gt;When I decided to start with this blog I didn't know about Pelican I just wanted a free hosting for my blog
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog</title><link href="http://eaam21.github.io/" rel="alternate"></link><link href="http://eaam21.github.io/feeds/all.atom.xml" rel="self"></link><id>http://eaam21.github.io/</id><updated>2018-03-21T17:14:36-03:00</updated><entry><title>Installing Texmaker under Debian</title><link href="http://eaam21.github.io/installing-texmaker.html" rel="alternate"></link><published>2018-03-21T17:14:36-03:00</published><updated>2018-03-21T17:14:36-03:00</updated><author><name>Elías Alejandro</name></author><id>tag:eaam21.github.io,2018-03-21:/installing-texmaker.html</id><summary type="html">&lt;p&gt;&lt;img alt="alt text" src="http://www.xm1math.net/texmaker/assets/portfolio/structure.png" title="Texmaker"&gt;&lt;/p&gt;
+&lt;p&gt;What is Texmaker? According to &lt;a href="http://www.xm1math.net/texmaker/" target="_blank"&gt;Texmaker&lt;/a&gt; website:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Texmaker is a free, modern and cross-platform LaTeX editor for linux, macosx and windows systems 
+that integrates many tools needed to develop documents with LaTeX, in just one application.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It makes sense since we need to create documents using &lt;a href="https://en.wikipedia.org/wiki/LaTex" target="_blank"&gt;LaTex&lt;/a&gt; format.&lt;/p&gt;
+&lt;p&gt;So to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="alt text" src="http://www.xm1math.net/texmaker/assets/portfolio/structure.png" title="Texmaker"&gt;&lt;/p&gt;
+&lt;p&gt;What is Texmaker? According to &lt;a href="http://www.xm1math.net/texmaker/" target="_blank"&gt;Texmaker&lt;/a&gt; website:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Texmaker is a free, modern and cross-platform LaTeX editor for linux, macosx and windows systems 
+that integrates many tools needed to develop documents with LaTeX, in just one application.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It makes sense since we need to create documents using &lt;a href="https://en.wikipedia.org/wiki/LaTex" target="_blank"&gt;LaTex&lt;/a&gt; format.&lt;/p&gt;
+&lt;p&gt;So to install Texmaker in Debian/Ubuntu you can follow the next instructions:&lt;/p&gt;
+&lt;h3&gt;Steps and troubleshooting&lt;/h3&gt;
+&lt;p&gt;First all install Texmaker :)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; sudo aptitude install texmaker
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Note: you can use apt-get to install your package like: sudo apt-get install texmaker&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ok, now I have a LaTex document and I'd like to create a pdf file. You can open your LaTex document
+(with TexMaker obviously :) and then clik on the Right Arrow (Run). If you get an error message like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;! Package babel Error: You haven&amp;#39;t specified a language option.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You need to install another package, in my case my document will be in Spanish then:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; sudo aptitude install tex-live-lang-spanish
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then try again to create the pdf file as we describe above. If you get an error message like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;! LaTeX Error: File `siunitx.sty&amp;#39; not found.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You need to install texlive-science package&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; sudo aptitude install texlive-science
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then try to create the pdf file. If you get an error message like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;! LaTeX Error: File `biblatex.sty&amp;#39; not found.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Install texlive-bibtex-extra package&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; sudo aptitude install texlive-bibtex-extra
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once again try to create the pdf file. But if you still get an error about &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="go"&gt;undefined sequence control..&lt;/span&gt;
+&lt;span class="go"&gt;\entry ...ata@\the \c@refsection @\blx@dlist@name&lt;/span&gt;
+&lt;span class="go"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should delete temporary files .aux, .bbl, .bcf and try again.&lt;/p&gt;</content><category term="Latex"></category></entry><entry><title>Installing pelican</title><link href="http://eaam21.github.io/installing-pelican.html" rel="alternate"></link><published>2016-05-03T17:14:36-03:00</published><updated>2016-05-03T17:14:36-03:00</updated><author><name>Elías Alejandro</name></author><id>tag:eaam21.github.io,2016-05-03:/installing-pelican.html</id><summary type="html">&lt;p&gt;When I decided to start with this blog I didn't know about Pelican I just wanted a free hosting for my blog
 integrated with git, some time ago some friends told me about Octopress and how it works however it runs with
 ruby. Currently I'm not familiar with ruby (long …&lt;/p&gt;</summary><content type="html">&lt;p&gt;When I decided to start with this blog I didn't know about Pelican I just wanted a free hosting for my blog
 integrated with git, some time ago some friends told me about Octopress and how it works however it runs with
