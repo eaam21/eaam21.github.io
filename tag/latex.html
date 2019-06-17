@@ -1,59 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="../theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+        <title>blog <small>Latex</small></title>
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/css/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/css/font-awesome.css" type="text/css" />
+        <meta charset="utf-8" />
+      
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Elías Alejandro">
-  <meta name="description" content="Posts and writings by Elías Alejandro">
+        <!-- Javascript-->
+        <script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script async type="text/javascript"> 
+        $(function() {
+            function invisibleMenu() {
+                var now = 0;
+                var pixels = 300;
+                var opacity = -1;
 
-  <link href="http://eaam21.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog Atom" />
-
-
-  <title>
-    Blog
-&ndash; Tag: Latex  </title>
-
+                var move = function() {
+                    now = $(window).scrollTop();
+                    if (now > pixels && opacity !== 0)
+                        opacity = 0;
+                    else if (now < pixels){
+                        // Depends on the position not if scrolls down or up
+                        opacity = (1 - now/pixels);
+                    }
+                    $("div.navigation").css({"opacity": opacity});
+                }
+                $(window).scroll(move);
+                move();
+            }
+            invisibleMenu();
+          });
+          </script> 
 </head>
 
-<body>
-  <aside>
-    <div id="user_meta">
-      <a href="..">
-        <img src="http://eaam21.github.io/images/avatar.png" alt="logo">
-      </a>
-      <h2><a href="..">Elías Alejandro</a></h2>
-      <p>Learning blog</p>
-      <ul>
-        <li><a href="https://github.com/eaam21" target="_blank">Github</a></li>
-        <li><a href="https://twitter.com/eaam21" target="_blank">Twitter</a></li>
-      </ul>
-    </div>
-  </aside>
-
-  <main>
-    <header>
-      <p>
-      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
-      &brvbar; <a href="http://eaam21.github.io/feeds/all.atom.xml">Atom</a>
-&gt; Tag: Latex
-      </p>
-    </header>
-
-<article>
-  <div class="article_title">
-    <h1><a href="../installing-texmaker.html">Installing Texmaker under Debian</a></h1>
-  </div>
-  <div class="article_text">
-    <p><img alt="alt text" src="http://www.xm1math.net/texmaker/assets/portfolio/structure.png" title="Texmaker"></p>
+<body id="index" class="home">
+     <div class="navigation">
+        <ol class="nav">
+          <li><a href="..">Blog</a> </li>
+          <li><a href="../archives.html">Archive</a></li>
+          <li class="current"><a href="../tags.html">Tags</a> </li>
+          <li><a href="../">RSS</a> </li>
+        </ol>
+      </div>
+        <header id="banner" class="body">
+                <div class="banner"><a href="..">blog <strong></strong></a></div>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+        <div class="box">
+        
+<section id="content">
+<div class="posts">
+    <ol id="post-list">
+        
+        <li>
+            <article class="archive">
+                <header> 
+                    <h1 class="archive-entry-title">
+                        <a href="../installing-texmaker.html" rel="bookmark" title="Permalink to Installing Texmaker under Debian">Installing Texmaker under Debian</a>
+                    </h1> 
+                </header>
+                <footer class="post-info">
+                    <abbr>
+                      Wed 21 March 2018 
+                         By <a class="url fn" href="../author/elias-alejandro.html">Elías Alejandro</a>
+  
+                    </abbr>
+                    <div class="entry-summary"> <p><img alt="alt text" src="http://www.xm1math.net/texmaker/assets/portfolio/structure.png" title="Texmaker"></p>
 <p>What is Texmaker? According to <a href="http://www.xm1math.net/texmaker/" target="_blank">Texmaker</a> website:</p>
 <blockquote>
 <p>Texmaker is a free, modern and cross-platform LaTeX editor for linux, macosx and windows systems 
@@ -61,18 +82,41 @@ that integrates many tools needed to develop documents with LaTeX, in just one a
 </blockquote>
 <p>It makes sense since we need to create documents using <a href="https://en.wikipedia.org/wiki/LaTex" target="_blank">LaTex</a> format.</p>
 <p>So to …</p>
-  </div>
-</article>
-
-<footer>
-<div id="paginator">
-
+                    <a href="../installing-texmaker.html">read more</a></div>
+                </footer><!-- /.post-info -->
+                <!-- /.entry-content -->
+            </article>
+        </li>
+    </ol><!-- /#posts-list -->
 </div>
-</footer>
+<p class="paginator">
+    Page 1 / 1
+</p>
+</section><!-- /#content -->
+            <hr/>
+            <footer id="contentinfo" class="footer">
+                <div>
+                    <a href="..">Elías Alejandro</a> (2012)
+                </div>
+                <div>
+                    This work is licensed under <a rel="license" href="http://opensource.org/licenses/bsd-3-clause">3 clause BSD</a>. Source code available on <a rel="source code" href="https://github.com/slok/blog">Github</a>
+                </div>
+                <div>
+                    powered by <a href="http://getpelican.com/">Pelican</a>
+                    and <a href="http://python.org">Python</a>. 
+                    <a href="http://github.com/slok/iris">Theme</a> by <a href="http://xlarrakoetxea.org">Xabier Larrakoetxea</a> based on <a href="http://flask.pocoo.org/">Flask</a> theme
+                </div>
+                <div>
+                    Social icons (font awesome) by <a href="http://fortawesome.github.com/Font-Awesome/"> fort awesome</a>.
+                    <a href="http://www.google.com/webfonts/specimen/The+Girl+Next+Door">Title</a>, <a href="http://www.google.com/webfonts/specimen/Marcellus">headers</a> and <a href="http://www.google.com/webfonts/specimen/Inconsolata">source code</a> fonts by google fonts
+                </div>
+                <div class="social">
+                        <a href="https://github.com/eaam21"><i class="icon-Github"></i>  </a>
+                        <a href="https://twitter.com/eaam21"><i class="icon-Twitter"></i>  </a>
+                </div>
+            </footer><!-- /#contentinfo -->
+        </div>
+        <!--Add statistycs-->
 
-    <div id="ending_message">
-      <p>&copy; Elías Alejandro. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-    </div>
-  </main>
 </body>
 </html>
